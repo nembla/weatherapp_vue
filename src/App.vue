@@ -121,7 +121,10 @@ main {
 }
 .search-box {
   width: 100%;
+  max-width: 700px;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .search-box .search-bar {
   display: block;
