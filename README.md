@@ -1,4 +1,5 @@
 # weatherapp
+App built in VueJS, using open weather API
 
 ## Project setup
 ```
