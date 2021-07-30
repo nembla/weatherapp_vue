@@ -1,9 +1,7 @@
 <template>
   <div
     id="app"
-    :class="
-      typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''
-    "
+    :class="typeof weather.main != 'undefined'"
     :style="{
       backgroundImage: 'url(' + image + ')',
     }"
@@ -129,13 +127,12 @@ body {
 }
 #app {
   background-image: url("./assets/coldNew.jpeg");
+  transition: 1s;
   background-size: cover;
   background-position: bottom;
   transition: 0.4s;
 }
-#app.warm {
-  background-image: url("./assets/warmNew.jpeg");
-}
+
 main {
   min-height: 100vh;
   padding: 25px;
