@@ -4,6 +4,9 @@
     :class="
       typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''
     "
+    :style="{
+      backgroundImage: 'url(' + image + ')',
+    }"
   >
     <main>
       <div class="search-box">
@@ -13,6 +16,7 @@
           placeholder="Search..."
           v-model="query"
           @keyup.enter="fetchWeather"
+          @keydown.enter="bgImg"
         />
       </div>
 
@@ -40,11 +44,33 @@ export default {
     return {
       api_key: "3e1b13963b70c89ff5f1d2bb337e9121",
       url_base: "https://api.openweathermap.org/data/2.5/",
+      pexels_api: "563492ad6f9170000100000100847098ed934225a39aeab5b90bf25c",
+      pexels_base: "https://api.pexels.com/v1/",
       query: "",
       weather: {},
+      image: "",
     };
   },
   methods: {
+    getPhotos(images) {
+      images.map((image) => {
+        console.log(image);
+      });
+    },
+    bgImg() {
+      fetch(`https://api.pexels.com/v1/search?query=${this.query}`, {
+        headers: {
+          Authorization: this.pexels_api,
+        },
+      })
+        .then((resp) => {
+          return resp.json();
+        })
+        .then((data) => {
+          this.image = data.photos[0].src.landscape;
+          console.log(data.photos);
+        });
+    },
     fetchWeather() {
       fetch(
         `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
@@ -153,6 +179,8 @@ main {
   font-weight: 500;
   text-align: center;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  transition: 0.4s;
+  margin-bottom: 2px;
 }
 .location-box .date {
   color: #fff;
@@ -161,6 +189,16 @@ main {
   font-style: italic;
   text-align: center;
 }
+.location-box .location:hover {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+
 .weather-box {
   text-align: center;
 }
@@ -172,9 +210,10 @@ main {
   font-weight: 900;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
+  border-radius: 0px 16px 0px 16px;
   margin: 30px 0px;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  transition: 0.4s;
 }
 .weather-box .weather {
   color: #fff;
@@ -182,5 +221,10 @@ main {
   font-weight: 700;
   font-style: italic;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.weather-box .temp:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 </style>
