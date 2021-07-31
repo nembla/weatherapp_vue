@@ -1,4 +1,11 @@
 <template>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
+
   <div
     id="app"
     :class="typeof weather.main != 'undefined'"
@@ -7,6 +14,9 @@
     }"
   >
     <main>
+      <div class="header-wrap">
+        <div class="header">(insert cool name)</div>
+      </div>
       <div class="search-box">
         <input
           type="text"
@@ -126,7 +136,7 @@ body {
   font-family: "montserrat", sans-serif;
 }
 #app {
-  background-image: url("./assets/coldNew.jpeg");
+  background-image: url("https://images.unsplash.com/photo-1475319122043-5ca9eeceefaf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
   transition: 1s;
   background-size: cover;
   background-position: bottom;
@@ -142,6 +152,23 @@ main {
     rgba(0, 0, 0, 0.75)
   );
 }
+.header-wrap {
+  display: flex;
+}
+.header {
+  margin-left: auto;
+  font-size: 25px;
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 0px 16px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  font-family: "Bebas Neue", sans-serif;
+}
+
 .search-box {
   width: 100%;
   max-width: 700px;
