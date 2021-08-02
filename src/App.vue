@@ -111,6 +111,7 @@ export default {
     },
     setResults(results) {
       this.weather = results;
+      this.metric = "C°";
     },
     dateBuilder() {
       let d = new Date();
@@ -243,7 +244,7 @@ main {
   font-size: 102px;
   font-weight: 900;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 0px 16px 0px 16px;
   margin: 30px 0px;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
