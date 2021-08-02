@@ -45,17 +45,8 @@
         </div>
 
         <div class="weather-box">
-          <div class="temp">
-            {{ Math.round(weather.main.temp) }}°c
-            <label class="switch">
-              <input class="switch-input" type="checkbox" />
-              <span
-                class="switch-label"
-                data-on="Imperial"
-                data-off="Metric"
-              ></span>
-              <span class="switch-handle"></span>
-            </label>
+          <div class="temp" v-on:click="swapMetric">
+            {{ Math.round(weather.main.temp) }} {{ metric }}
           </div>
 
           <div class="weather">{{ weather.weather[0].main }}</div>
@@ -77,9 +68,25 @@ export default {
       query: "",
       weather: {},
       image: "",
+      onClick: false,
+      swap: 0,
+      metric: "C°",
     };
   },
   methods: {
+    swapMetric() {
+      if (this.metric === "C°") {
+        let swap = this.weather.main.temp;
+        swap = swap * (9 / 5);
+        swap = swap + 32;
+        this.swap = swap;
+        this.weather.main.temp = swap;
+        this.metric = "F°";
+      } else if (this.metric === "F°") {
+        this.fetchWeather();
+        this.metric = "C°";
+      }
+    },
     bgImg() {
       fetch(`https://api.pexels.com/v1/search?query=${this.query}`, {
         headers: {
@@ -174,7 +181,7 @@ main {
   font-size: 25px;
   font-weight: 300;
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   border-radius: 0px 16px;
   padding: 10px;
   font-family: "Bebas Neue", sans-serif;
@@ -224,15 +231,6 @@ main {
   font-weight: 300;
   font-style: italic;
   text-align: center;
-}
-.location-box .location:hover {
-  color: #fff;
-  font-size: 40px;
-  font-weight: 500;
-  text-align: center;
-  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
-  margin-bottom: 7px;
-  cursor: pointer;
 }
 
 .weather-box {
