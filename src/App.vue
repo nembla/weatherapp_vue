@@ -7,7 +7,7 @@
     rel="stylesheet"
   />
 
-  <!-- bootstrap include for icon -->
+  <!-- bootstrap include for icon-->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
