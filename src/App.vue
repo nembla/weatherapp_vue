@@ -81,8 +81,14 @@ export default {
   },
   methods: {
     goAbout() {
-      this.aboutToggle = true;
-      this.weather.main = undefined;
+      let aboutToggle = this.aboutToggle;
+      if (aboutToggle === false) {
+        this.aboutToggle = true;
+        this.weather.main = undefined;
+      } else {
+        this.aboutToggle = false;
+        this.query = "";
+      }
     },
     swapMetric() {
       if (this.metric === "C°") {
