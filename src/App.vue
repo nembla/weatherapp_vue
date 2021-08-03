@@ -54,6 +54,22 @@
           <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
+
+      <div class="about-wrap" v-if="aboutToggle === true">
+        <div class="about">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          sint fugiat debitis ullam qui voluptatum fuga! Quia quos laboriosam
+          quam facere aperiam doloribus, quo optio doloremque vero dignissimos,
+          animi distinctio. Iure similique doloribus nostrum quia adipisci
+          dignissimos, sequi nesciunt! Perferendis, rem doloribus eius, esse
+          dicta quisquam quam, assumenda a corrupti eos cupiditate? Voluptatum
+          voluptas autem adipisci, magni voluptates eos vero. Quae aliquid
+          consequatur ipsam quod molestias explicabo laboriosam! Doloremque
+          error nostrum ratione nobis deserunt veritatis animi aspernatur,
+          aperiam quia quasi dignissimos tempore ex nisi harum placeat saepe
+          mollitia delectus facere!
+        </div>
+      </div>
     </main>
   </div>
 </template>
@@ -281,5 +297,29 @@ main {
 .weather-box .temp:hover {
   background-color: rgba(0, 0, 0, 0.25);
   cursor: pointer;
+}
+
+.about-wrap {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-wrap .about {
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  color: #313131;
+  font-size: 20px;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0px 16px 0px 16px;
+  transition: 0.4s;
 }
 </style>
