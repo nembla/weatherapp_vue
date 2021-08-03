@@ -1,5 +1,6 @@
 # weatherapp
-App built in VueJS, using open weather API
+App built in VueJS, using open weather API.
+API keys stored in .env file.
 
 ## Project setup
 ```
@@ -10,16 +11,3 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

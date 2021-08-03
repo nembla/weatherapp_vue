@@ -62,11 +62,11 @@ export default {
   data() {
     return {
       //Weather
-      api_key: "3e1b13963b70c89ff5f1d2bb337e9121",
-      url_base: "https://api.openweathermap.org/data/2.5/",
+      api_key: process.env.VUE_APP_weatherAPI,
+      url_base: process.env.VUE_APP_weatherURL,
       //Background Images
-      pexels_api: "563492ad6f9170000100000100847098ed934225a39aeab5b90bf25c",
-      pexels_base: "https://api.pexels.com/v1/",
+      pexels_api: process.env.VUE_APP_pexelsAPI,
+      pexels_base: process.env.VUE_APP_pexelsURL,
 
       //Data
       query: "",
@@ -145,7 +145,7 @@ export default {
       let date = d.getDate();
       let month = months[d.getMonth()];
       let year = d.getFullYear();
-      return `${day} ${date} ${month} ${year}`;
+      return `${day}, ${date} ${month} ${year}`;
     },
   },
 };
