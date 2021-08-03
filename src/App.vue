@@ -22,10 +22,12 @@
   >
     <main>
       <div class="header-wrap">
-        <div class="header">cloud.world <i class="bi bi-cloud-haze"></i></div>
+        <div class="header" @click="goAbout">
+          cloud.world <i class="bi bi-cloud-haze"></i>
+        </div>
         <!-- On click make it go to my personal website -->
       </div>
-      <div class="search-box">
+      <div class="search-box" v-if="aboutToggle === false">
         <input
           type="text"
           class="search-bar"
@@ -74,9 +76,14 @@ export default {
       image: "",
       swap: 0,
       metric: "C°",
+      aboutToggle: false,
     };
   },
   methods: {
+    goAbout() {
+      this.aboutToggle = true;
+      this.weather.main = undefined;
+    },
     swapMetric() {
       if (this.metric === "C°") {
         let swap = this.weather.main.temp;
@@ -190,6 +197,10 @@ main {
   padding: 10px;
   font-family: "Bebas Neue", sans-serif;
   text-shadow: 2px 3px rgba(0, 0, 0, 1);
+}
+
+.header:hover {
+  cursor: pointer;
 }
 
 .search-box {
