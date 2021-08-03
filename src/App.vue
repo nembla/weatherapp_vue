@@ -51,8 +51,6 @@
 
           <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
-
-        <div class="weather-seven-day">Insert 7 Day Forecast</div>
       </div>
     </main>
   </div>
@@ -266,12 +264,5 @@ main {
 .weather-box .temp:hover {
   background-color: rgba(0, 0, 0, 0.25);
   cursor: pointer;
-}
-
-.weather-seven-day {
-  width: 100%;
-  height: 50px;
-  margin-top: 30px;
-  background-color: rgba(255, 255, 255, 0.2);
 }
 </style>
