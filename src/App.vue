@@ -25,7 +25,6 @@
         <div class="header" @click="goAbout">
           cloud.world <i class="bi bi-cloud-haze"></i>
         </div>
-        <!-- On click make it go to my personal website -->
       </div>
       <div class="search-box" v-if="aboutToggle === false">
         <input
@@ -57,17 +56,22 @@
 
       <div class="about-wrap" v-if="aboutToggle === true">
         <div class="about">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-          sint fugiat debitis ullam qui voluptatum fuga! Quia quos laboriosam
-          quam facere aperiam doloribus, quo optio doloremque vero dignissimos,
-          animi distinctio. Iure similique doloribus nostrum quia adipisci
-          dignissimos, sequi nesciunt! Perferendis, rem doloribus eius, esse
-          dicta quisquam quam, assumenda a corrupti eos cupiditate? Voluptatum
-          voluptas autem adipisci, magni voluptates eos vero. Quae aliquid
-          consequatur ipsam quod molestias explicabo laboriosam! Doloremque
-          error nostrum ratione nobis deserunt veritatis animi aspernatur,
-          aperiam quia quasi dignissimos tempore ex nisi harum placeat saepe
-          mollitia delectus facere!
+          <p class="about-title">About Cloud World</p>
+          <p class="about-body">
+            Cloud World was developed in Vue.js. This is my first application
+            that I made using Vue.js and it includes a few features of modern
+            websites:
+          </p>
+          <ul class="about-body about-list">
+            <li>OpenWeather API for current weather</li>
+            <li>Pexels API for background images</li>
+            <li>Hidden API keys from GitHub</li>
+            <li>Toggleable about page</li>
+          </ul>
+          <p class="about-body about-foot">
+            For more of my projects, visit my
+            <a target="_blank" href="https://github.com/nemanjaone">GitHub</a>.
+          </p>
         </div>
       </div>
     </main>
@@ -321,5 +325,22 @@ main {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0px 16px 0px 16px;
   transition: 0.4s;
+}
+.about-title {
+  font-weight: 550;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.about-body {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.about-list {
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.about-foot {
+  margin-top: 10px;
 }
 </style>
