@@ -2,12 +2,6 @@
 App built in VueJS, using open weather API.
 API keys stored in .env file.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Images:
+<img src="https://imgur.com/a/JqaB6EF">
+<img src="https://imgur.com/a/ufDLhFD">
